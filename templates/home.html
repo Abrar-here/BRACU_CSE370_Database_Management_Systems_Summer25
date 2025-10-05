@@ -1,0 +1,91 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .home-container {
+            background: rgba(255,255,255,0.1);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .home-container h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        .home-container a.btn {
+            margin: 10px;
+            min-width: 150px;
+            font-weight: bold;
+        }
+        .welcome-text {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .featured-pets img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="home-container">
+    <h1>Welcome to Pet Adoption</h1>
+
+    {% if current_user.is_authenticated %}
+        <p class="welcome-text">Hello, <strong>{{ current_user.Name }}</strong>! <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a></p>
+    {% else %}
+        <p class="welcome-text">
+            <a href="{{ url_for('login') }}" class="btn btn-light btn-sm">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Register</a>
+        </p>
+    {% endif %}
+
+    <div class="d-flex justify-content-center flex-wrap mt-4">
+        <a href="{{ url_for('pets') }}" class="btn btn-info btn-lg">Pets</a>
+        <a href="{{ url_for('events') }}" class="btn btn-warning btn-lg">Events</a>
+        <a href="{{ url_for('feedback') }}" class="btn btn-secondary btn-lg">Feedback</a>
+    </div>
+
+    {% if featured_pets %}
+        <h3 class="mt-4">Featured Pets</h3>
+        <div class="featured-pets d-flex justify-content-center flex-wrap">
+            {% for p in featured_pets %}
+                <a href="{{ url_for('pets') }}">
+                    <img src="{{ url_for('static', filename=p.Image_url) if p.Image_url else url_for('static', filename='images/default.jpg') }}"
+                         alt="{{ p.Name }}" title="{{ p.Name }}">
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if current_user.is_authenticated and current_user.admin %}
+        <p class="mt-4">
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-danger btn-lg">Admin Dashboard</a>
+        </p>
+    {% endif %}
+</div>
+</body>
+</html>

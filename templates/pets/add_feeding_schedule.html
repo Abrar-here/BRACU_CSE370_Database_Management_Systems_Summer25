@@ -1,0 +1,45 @@
+<!-- templates/add_feeding_schedule.html -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Add Feeding Schedule for {{ pet.Name }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {{ form.hidden_tag() }}
+
+                        <div class="form-floating mb-3">
+                            {{ form.time(class="form-control", type="time", id="timeInput") }}
+                            <label for="timeInput">Feeding Time</label>
+                            <div class="form-text">Select the time for feeding.</div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            {{ form.food_type(class="form-control", id="foodTypeInput", placeholder="Food Type") }}
+                            <label for="foodTypeInput">Food Type</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            {{ form.notes(class="form-control", id="notesInput", placeholder="Notes (optional)") }}
+                            <label for="notesInput">Notes (optional)</label>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            {{ form.submit(class="btn btn-success btn-lg") }}
+                        </div>
+                    </form>
+
+                    <a href="{{ url_for('feeding_schedule', pet_id=pet.Pet_id) }}" class="btn btn-outline-secondary mt-3 w-100">
+                        Back to Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

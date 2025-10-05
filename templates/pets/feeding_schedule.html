@@ -1,0 +1,48 @@
+<!-- templates/feeding_schedule.html -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container py-5">
+    <h1 class="mb-4 text-center">Feeding Schedule for {{ pet.Name }}</h1>
+
+    {% if schedules %}
+    <div class="row">
+        {% for s in schedules %}
+        <div class="col-md-6 mb-4">
+            <div class="card border-primary shadow-sm h-100">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    Feeding Time: {{ s.feeding_time.strftime('%H:%M') if s.feeding_time else 'N/A' }}
+                    {% if current_user.admin %}
+                    <form method="post" action="{{ url_for('delete_feeding_schedule', schedule_id=s.Schedule_id) }}" class="mb-0">
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this schedule?');">
+                            Delete
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <p class="card-text mb-1">
+                        <strong>Food Type:</strong> {{ s.food_type or 'N/A' }}
+                    </p>
+                    {% if s.notes %}
+                    <p class="text-muted mb-0"><small>{{ s.notes }}</small></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-secondary text-center">
+        No feeding schedules found for this pet.
+    </div>
+    {% endif %}
+
+    <div class="mt-4 d-flex gap-2">
+        {% if current_user.admin %}
+        <a href="{{ url_for('add_feeding_schedule', pet_id=pet.Pet_id) }}" class="btn btn-warning">Add Schedule</a>
+        {% endif %}
+        <a href="{{ url_for('pets') }}" class="btn btn-secondary">Back to Pets</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
