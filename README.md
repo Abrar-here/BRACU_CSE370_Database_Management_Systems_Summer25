@@ -1,0 +1,2 @@
+# BRACU_CSE370_Database_Management_Systems_Summer25
+CSE370-Database Management Systems Assignments and Projects
