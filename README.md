@@ -27,18 +27,17 @@ A web-based system to manage pet adoptions efficiently. Users can view pets, sub
 ## 🚀 Setup Instructions
 
 1. **Clone the repo**
-```bash
 git clone https://github.com/Abrar-here/BRACU_CSE370_Database_Management_Systems_Summer25.git
 cd BRACU_CSE370_Database_Management_Systems_Summer25
 2. **Create a virtual environment**
-```bash
 python -m venv venv
 3. **Activate the environment**
 - Windows:
-```bash
 venv\Scripts\activate
 - Linux/Mac:
-```bash
 source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+
 
 
