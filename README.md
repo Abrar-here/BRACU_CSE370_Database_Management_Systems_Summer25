@@ -43,7 +43,8 @@ source venv/bin/activate
 - Import database.sql
 6. **Run the application**
 - python app.py
-7.**Open in browser:**
+
+ 7.**Open in browser:**
 - http://127.0.0.1:5000/
 
 
