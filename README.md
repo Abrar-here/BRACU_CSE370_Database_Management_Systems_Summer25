@@ -15,5 +15,3 @@ Supports two roles: **users (adopters)** and **admins**.
 - HTML / CSS / Bootstrap  
 - SQLite (default) — can use PostgreSQL via `DATABASE_URL`
 
-## Project structure
-
