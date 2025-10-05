@@ -1,17 +1,32 @@
-# BRACU_CSE370_Database_Management_Systems_Summer25
-CSE370-Database Management Systems Assignments and Projects
+# 🐾 Pet Adoption System
 
-# 🐾 Pet Adoption Management System
+[![Python](https://img.shields.io/badge/Python-3.13-blue)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.3.2-orange)](https://flask.palletsprojects.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-lightblue)](https://www.mysql.com/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-A simple Flask web app to manage pet adoptions, events, medical & feeding records.  
-Supports two roles: **users (adopters)** and **admins**.
+A web-based system to manage pet adoptions efficiently. Users can view pets, submit adoption requests, and manage pet information through a simple and intuitive interface.
 
-## Features
-- User: register/login, view & adopt pets, register for events, leave feedback  
-- Admin: add/edit/delete pets, manage events, add medical & feeding records, delete feedback
+---
 
-## Tech stack
-- Python, Flask, Flask-Login, Flask-WTF, SQLAlchemy  
-- HTML / CSS / Bootstrap  
-- SQLite (default) — can use PostgreSQL via `DATABASE_URL`
+## 🌟 Features
+- User registration & login  
+- Add, view, and manage pets  
+- Handle adoption requests  
+- Clean and user-friendly UI  
 
+---
+
+## 🛠 Technologies
+- **Backend:** Python, Flask  
+- **Database:** MySQL  
+- **Frontend:** HTML, CSS, JavaScript  
+
+---
+
+## 🚀 Setup Instructions
+
+1. **Clone the repo**
+```bash
+git clone https://github.com/Abrar-here/BRACU_CSE370_Database_Management_Systems_Summer25.git
+cd BRACU_CSE370_Database_Management_Systems_Summer25
