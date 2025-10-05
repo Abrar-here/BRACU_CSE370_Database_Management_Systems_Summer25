@@ -36,8 +36,14 @@ python -m venv venv
 venv\Scripts\activate
 - Linux/Mac:
 source venv/bin/activate
+4. **Install dependencies**
 pip install -r requirements.txt
+5. **Set up the database**
+-Create a MySQL database
+-Import database.sql
+6. **Run the application**
 python app.py
+7.**Open in browser: http://127.0.0.1:5000/**
 
 
 
